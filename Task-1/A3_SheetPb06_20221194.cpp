@@ -31,22 +31,23 @@ class Universe{
                 arr1[i][j] = 0;
             }
         }
+        cout << "-----------------------"<<endl;
     }
     int count_neighbors(int x ,int y){
-        int count=0;
+        int counter =0;
          for(int i = x-1 ; i <= x+1 ; i++){
             for(int j = y-1 ; j <= y+1 ; j++){
                  if((i==x && j==y) || (i<0 || j<0) || (i >= row || j >= col)) continue;
-                 if (arr1[i][j]==1) count ++;
+                 if (arr1[i][j]==1) counter ++;
             }
          }
-         return count;
+         return counter ;
     }
     void next_generation(){
         int arr2[row][col];
         for(int i=0 ; i < row ; i++){
             for (int j=0 ; j < col ; j++){
-                int neighbors = count_neighbors( i , j);
+                int neighbors = count_neighbors(i , j);
                 if(arr1[i][j]==1 && (neighbors < 2 || neighbors > 3)) {
                     arr2[i][j]=0;
                 }
@@ -93,5 +94,8 @@ int main( )
    Universe unverse;
    unverse.initialize();
    unverse.run(5);
+   unverse.reset();
+   unverse.initialize();
+   unverse.run(3);
  return 0;
 }

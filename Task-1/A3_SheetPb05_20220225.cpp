@@ -1,3 +1,8 @@
+// File: A3_SheetPb05_20220225.cpp
+// Author: Omar Saeed Othman
+// Section: S(1)
+// ID: 20220225
+
 #include <iostream>
 #include <string>
 #include <vector>

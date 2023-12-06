@@ -37,7 +37,7 @@ class Universe{
         int counter =0;
          for(int i = x-1 ; i <= x+1 ; i++){
             for(int j = y-1 ; j <= y+1 ; j++){
-                 if((i==x && j==y) || (i<0 || j<0) || (i >= row || j >= col)) continue;
+                 if( (i<0 || j<0) || (i >= row || j >= col) || (i==x && j==y)) continue;
                  if (arr1[i][j]==1) counter ++;
             }
          }

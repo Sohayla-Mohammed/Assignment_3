@@ -1,4 +1,8 @@
 // File: A3_SheetPb01_20220159.cpp
+// purpose: The purpose of this problem is to design a flexible label generator system, implemented through an abstract class LabelGenerator,
+//allowing clients to create and use arbitrary sequences of labels with a prefix and an integer sequence number.
+//Additionally, the problem extends the functionality by introducing a derived class FileLabelGenerator that reads labels from a file 
+//and incorporates them into the generated labels.
 // Author: Sohayla Mohammed Ahmed
 // Section: S(2)
 // ID: 20220159

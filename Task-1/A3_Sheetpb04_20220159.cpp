@@ -1,4 +1,7 @@
 // File: A3_SheetPb04_20220159.cpp
+// purpose: The purpose of this problem is to implement a template-based set class in C++ that supports fundamental set operations,
+// such as adding, removing, counting items, checking membership, and providing a dynamic array of set items,
+// while also accommodating different data types and potential user-defined objects.
 // Author: Sohayla Mohammed Ahmed
 // Section: S(2)
 // ID: 20220159

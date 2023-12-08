@@ -27,6 +27,15 @@ string removepunct(const string& word) {
     string result = word.substr(First_Index, Last_Index - First_Index + 1);
     return result;
 }
+string cleanWord(const string& word) {
+    string cleanedWord;
+    for (char Char : word) {
+        if (isalnum(Char) || Char == '_') {
+            cleanedWord += Char;
+        }
+    }
+    return cleanedWord;
+}
 int main( ) 
 {  
     string name_of_file;
@@ -44,11 +53,12 @@ int main( )
     string word;
     while (inputFile >> word) {
         string wordAfterRemovePunct = removepunct(word);
-        for(char& c : wordAfterRemovePunct){
-              c = tolower(c);
+        string cleanedWord = cleanWord(wordAfterRemovePunct);
+        for(char& Char : cleanedWord){
+              Char = tolower(Char);
         }
-        if(!wordAfterRemovePunct.empty()){
-            frequency_table[wordAfterRemovePunct]++;
+        if(!cleanedWord.empty()){
+            frequency_table[cleanedWord]++;
         }
     }
     cout << "Word Frequency Table:" << endl;

@@ -5,24 +5,41 @@
 // Section: S2
 // Date: 6/12/2023
 
-#include <iostream> 
-#include <bits/stdc++.h> 
+#include <iostream>
+#include <bits/stdc++.h>
 #include <cstdlib>
 
-using namespace std; 
+using namespace std;
 class Universe{
     protected:
       static const int row = 30;
       static const int col = 30;
       int arr1[row][col];
-      
+
     public:
-     
+
     void initialize(){
         for(int i=0 ; i < row ; i++){
             for (int j=0 ; j < col ; j++){
                 arr1[i][j] = rand() % 2;
             }
+        }
+    }
+     void initializeFromFile(const string& filename) {
+        ifstream inputFile(filename);
+        if (!inputFile.is_open()) {
+            cout << "your file not opened " << endl;
+            exit(1);
+        }
+       else {
+           for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    char c;
+                    inputFile >> c;
+                    arr1[i][j] = c - '0';
+                }
+            }
+            inputFile.close();
         }
     }
     void reset(){
@@ -69,7 +86,7 @@ class Universe{
         }
     }
     void display (){
-        cout << endl;
+        system("cls");
         for(int i=0 ; i < row ; i++){
             for (int j=0 ; j < col ; j++){
                 // 1 for live cell
@@ -88,15 +105,42 @@ class Universe{
           }
     }
 };
+
 const int Universe::row;
 const int Universe::col;
-int main( ) 
-{  
-   Universe unverse;
-   unverse.initialize();
-   unverse.run(5);
-   unverse.reset();
-   unverse.initialize();
-   unverse.run(3);
- return 0;
+
+void initializByUserChoice (Universe& universe) {
+    cout << "Choose your option:" << endl;
+    cout << "Choose 1 if you want to Initialize with random generation" << endl;
+    cout << "Choose 2 if you want to Initialize from your file" << endl;
+
+    int yourChoice;
+    cin >> yourChoice;
+
+    if (yourChoice == 1) {
+        universe.initialize();
+    } else if (yourChoice == 2) {
+        string Name_of_Your_file;
+        cout << "Plz Enter Name_of_Your_file: ";
+        cin >> Name_of_Your_file;
+        universe.initializeFromFile(Name_of_Your_file);
+    } else {
+        cout << "Invalid choice." << endl;
+
+    }
+
+}
+
+
+
+int main()
+{
+    Universe unverse;
+    initializByUserChoice(unverse);
+    unverse.run(5);
+    unverse.reset();
+    initializByUserChoice(unverse);
+    unverse.run(3);
+
+    return 0;
 }

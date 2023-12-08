@@ -110,9 +110,9 @@ const int Universe::row;
 const int Universe::col;
 
 void initializByUserChoice (Universe& universe) {
-    cout << "Choose your option:" << endl;
     cout << "Choose 1 if you want to Initialize with random generation" << endl;
     cout << "Choose 2 if you want to Initialize from your file" << endl;
+    cout << "Choose your option: " ;
 
     int yourChoice;
     cin >> yourChoice;
